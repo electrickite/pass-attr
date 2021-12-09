@@ -1,0 +1,10 @@
+PASSWORD_STORE_EXTENSION_COMMANDS+=(attr)
+PASSWORD_STORE_EXTENSION_COMMANDS+=(line)
+
+__password_store_extension_complete_attr() {
+    _pass_complete_entries 1
+}
+
+__password_store_extension_complete_line() {
+    _pass_complete_entries 1
+}

@@ -1,0 +1,73 @@
+.TH pass-attr 1 "Version 0.1.0"
+
+.SH NAME
+pass-attr - pass password manager extension to print single lines from password files.
+
+.SH SYNOPSIS
+.B pass
+attr
+[
+.I attr-name
+]
+[
+.I pass-name
+]
+.br
+.B pass
+line
+[
+.I line-num
+]
+[
+.I pass-name
+]
+
+.SH DESCRIPTION
+
+An extension for the
+.BR pass(1)
+password manager that shows single lines of a password file, either by attribute name or by line number.
+
+.SH COMMANDS
+.TP
+\fBattr\fP \fIattr-name\fP \fIpass-name\fP 
+Shows only the attribute given in attr-name from the password file. The attr command will search for a line beginning with the given attribute (case-sensitive) and will output the rest of the line following the : with leading whitespace removed. Omitting attr-name will show the first line of the password file, generally the password itself. Multi-line password files should be stored in the following format:
+
+My secret password
+.br
+URL: www.example.com
+.br
+Username: myuser
+.TP
+\fBline\fP \fIline-num\fP \fIpass-name\fP 
+Prints the given line number from the password file. Omitting the line number will show the first line of the password file, generally the password itself.
+
+.SH EXAMPLES
+.TP
+To retrieve the username from the example password file above:
+
+$ \fBpass attr\fP Username my-password
+.br
+myuser
+.TP
+To retrieve the password only:
+
+$ \fBpass line\fP my-password
+.br
+My secret password
+
+.SH SEE ALSO
+.BR pass (1)
+
+.SH AUTHOR
+Corey Hinshaw
+
+.SH REPORTING BUGS
+.I https://github.com/electrickite/pass-attr/issues
+
+.SH LICENSE
+Copyright \(co 2021 Corey Hinshaw
+.PP
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
+.br
+This is free software: you are free to change and redistribute it. There is NO WARRANTY, to the extent permitted by law.
