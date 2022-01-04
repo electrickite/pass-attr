@@ -1,26 +1,16 @@
-.TH pass-attr 1 "Version 0.1.0"
+.TH pass-attr 1 "Version 0.2.0"
 
 .SH NAME
 pass-attr - pass password manager extension to print single lines from password files.
 
 .SH SYNOPSIS
 .B pass
-attr
-[
-.I attr-name
-]
-[
+attr [ --clip, -c ] [ --qrcode, -q ] [\fIattr-name\fP]
 .I pass-name
-]
 .br
 .B pass
-line
-[
-.I line-num
-]
-[
+line [ --clip, -c ] [ --qrcode, -q ] [\fIline-num\fP]
 .I pass-name
-]
 
 .SH DESCRIPTION
 
@@ -30,7 +20,7 @@ password manager that shows single lines of a password file, either by attribute
 
 .SH COMMANDS
 .TP
-\fBattr\fP \fIattr-name\fP \fIpass-name\fP 
+\fBattr\fP [ --clip, -c ] [ --qrcode, -q ] [\fIattr-name\fP] \fIpass-name\fP 
 Shows only the attribute given in attr-name from the password file. The attr command will search for a line beginning with the given attribute (case-sensitive) and will output the rest of the line following the : with leading whitespace removed. Omitting attr-name will show the first line of the password file, generally the password itself. Multi-line password files should be stored in the following format:
 
 My secret password
@@ -38,9 +28,13 @@ My secret password
 URL: www.example.com
 .br
 Username: myuser
+
+The --clip and --qrcode options will copy the attribute to the clipboard or generate a QR code image of the attribute data.
 .TP
-\fBline\fP \fIline-num\fP \fIpass-name\fP 
+\fBline\fP [ --clip, -c ] [ --qrcode, -q ] [\fIline-num\fP] \fIpass-name\fP 
 Prints the given line number from the password file. Omitting the line number will show the first line of the password file, generally the password itself.
+
+The --clip and --qrcode options will copy the given line to the clipboard or generate a QR code image of the line data.
 
 .SH EXAMPLES
 .TP
@@ -66,7 +60,7 @@ Corey Hinshaw
 .I https://github.com/electrickite/pass-attr/issues
 
 .SH LICENSE
-Copyright \(co 2021 Corey Hinshaw
+Copyright \(co 2022 Corey Hinshaw
 .PP
 License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
 .br
